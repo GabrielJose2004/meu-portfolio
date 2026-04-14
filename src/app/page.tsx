@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/sections/HeroSection'
+import { ProjectsSection } from '@/components/sections/ProjectsSection'
 
 /**
  * Home — Server Component.
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <main className="relative">
       <HeroSection />
+      <ProjectsSection />
     </main>
   )
 }
