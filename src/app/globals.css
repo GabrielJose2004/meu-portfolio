@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-void: #000000;
+  --color-surface: #0a0a0a;
+  --color-wire: #141414;
+  --color-muted: #3a3a3a;
+  --color-ghost: #6b6b6b;
+  --color-silver: #a1a1a1;
+  --color-snow: #ededed;
+  --color-signal: #00ff87;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ─────────────────────────────────────────────────────────────────
+   BASE — Reset e tokens globais
+   ───────────────────────────────────────────────────────────────── */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --signal: #00ff87;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background-color: #000;
+    color: #ededed;
+    scroll-behavior: smooth;
+    /* Renderização de fonte cirúrgica */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Seleção de texto com identidade da marca */
+  ::selection {
+    background-color: #00ff87;
+    color: #000;
+  }
+
+  /* Scrollbar cirúrgica — 4px, invisível ao repouso */
+  ::-webkit-scrollbar       { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6b6b6b; }
+
+  /* Focus ring consistente para acessibilidade */
+  :focus-visible {
+    outline: 2px solid #00ff87;
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─────────────────────────────────────────────────────────────────
+   UTILITIES — Auxiliares reutilizáveis
+   ───────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Linha divisória com dissolução lateral — substitui <hr> genérico */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #3a3a3a 25%,
+      #3a3a3a 75%,
+      transparent
+    );
+  }
+
+  /* Garante que animações fade-up mantenham o estado final */
+  .animate-fade-up {
+    animation-fill-mode: forwards;
+  }
+
+  /* Previne FOUC em elementos que entram com animação */
+  .will-animate {
+    opacity: 0;
+  }
 }
