@@ -110,12 +110,12 @@ export function ProjectsSection() {
               style={stagger(index + 2)}
             >
               {/* ── Área de Mockup (Topo) ──────────────────────── */}
-              <div className="relative h-48 sm:h-56 bg-black/50 overflow-hidden border-b border-white/5 p-4 sm:p-6 flex items-center justify-center">
+              <div className="relative h-48 sm:h-56 bg-black/50 overflow-hidden border-b border-white/5">
                 {project.imageUrl ? (
                   <img
                     src={project.imageUrl}
                     alt={`Mockup de ${project.title}`}
-                    className="w-full h-full object-contain transition-transform duration-300"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
                   /* Placeholder industrial */
