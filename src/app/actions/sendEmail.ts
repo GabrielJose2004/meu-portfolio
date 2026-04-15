@@ -1,13 +1,16 @@
-'use server'
+"use server";
 
-import { Resend } from 'resend'
-import { ContactFormSchema, type ContactFormInput } from './contact'
+import { Resend } from "resend";
+import {
+  ContactFormSchema,
+  type ContactFormInput,
+} from "@/lib/validations/contact";
 
 /**
  * Server Action: sendEmail via Resend
  *
  * ARQUITETURA:
- * - Reutiliza schema de validação do contact.ts
+ * - Importa schema de validação (isolado em lib/validations)
  * - Envia email para josegabriel13112004@gmail.com
  * - Retorna sucesso ou erro estruturado
  *
@@ -17,44 +20,44 @@ import { ContactFormSchema, type ContactFormInput } from './contact'
  * - Sem exposição de detalhes internos em erro
  */
 
-const RECIPIENT_EMAIL = 'josegabriel13112004@gmail.com'
+const RECIPIENT_EMAIL = "josegabriel13112004@gmail.com";
 
 export type SendEmailResponse =
   | { success: true; message: string; messageId: string }
-  | { success: false; errors: Record<string, string[]> }
+  | { success: false; errors: Record<string, string[]> };
 
-export async function sendEmail(
-  data: unknown,
-): Promise<SendEmailResponse> {
+export async function sendEmail(data: unknown): Promise<SendEmailResponse> {
   // Validação rigorosa com mesmo schema do cliente
-  const validationResult = ContactFormSchema.safeParse(data)
+  const validationResult = ContactFormSchema.safeParse(data);
 
   if (!validationResult.success) {
     return {
       success: false,
-      errors: validationResult.error.flatten()
-        .fieldErrors as Record<string, string[]>,
-    }
+      errors: validationResult.error.flatten().fieldErrors as Record<
+        string,
+        string[]
+      >,
+    };
   }
 
-  const { name, email, subject, message } = validationResult.data
+  const { name, email, subject, message } = validationResult.data;
 
   try {
     // Verificar se API key está configurada
-    const apiKey = process.env.RESEND_API_KEY
+    const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-      console.error('RESEND_API_KEY not configured')
+      console.error("RESEND_API_KEY not configured");
       return {
         success: false,
         errors: {
           submit: [
-            'Serviço de email não configurado. Por favor, tente novamente mais tarde.',
+            "Serviço de email não configurado. Por favor, tente novamente mais tarde.",
           ],
         },
-      }
+      };
     }
 
-    const resend = new Resend(apiKey)
+    const resend = new Resend(apiKey);
 
     // Construir email HTML com identidade visual
     const emailHtml = `
@@ -91,46 +94,45 @@ export async function sendEmail(
     </table>
   </body>
 </html>
-    `
+    `;
 
     // Enviar email via Resend
     const response = await resend.emails.send({
-      from: 'contato@gjs.dev',
+      from: "contato@gjs.dev",
       to: RECIPIENT_EMAIL,
       replyTo: email,
       subject: `[GJS.DEV] ${subject}`,
       html: emailHtml,
-    })
+    });
 
     if (response.error) {
-      console.error('Resend error:', response.error)
+      console.error("Resend error:", response.error);
       return {
         success: false,
         errors: {
           submit: [
-            'Erro ao enviar email. Por favor, tente novamente mais tarde.',
+            "Erro ao enviar email. Por favor, tente novamente mais tarde.",
           ],
         },
-      }
+      };
     }
 
     // TODO: Integrar com Sentry/Datadog para logging de submissões bem-sucedidas
     return {
       success: true,
-      message:
-        'Mensagem enviada com sucesso! Responderei em até 24 horas.',
-      messageId: response.data?.id || 'unknown',
-    }
+      message: "Mensagem enviada com sucesso! Responderei em até 24 horas.",
+      messageId: response.data?.id || "unknown",
+    };
   } catch (error) {
     // TODO: Integrar com Sentry/Datadog
-    console.error('Error sending email:', error)
+    console.error("Error sending email:", error);
     return {
       success: false,
       errors: {
         submit: [
-          'Erro inesperado ao enviar. Por favor, tente novamente mais tarde.',
+          "Erro inesperado ao enviar. Por favor, tente novamente mais tarde.",
         ],
       },
-    }
+    };
   }
 }

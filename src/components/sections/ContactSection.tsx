@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { sendEmail } from '@/app/actions/sendEmail'
-import type { ContactFormInput } from '@/app/actions/contact'
+import type { ContactFormInput } from '@/lib/validations/contact'
 
 /* ── Schema de validação (CLIENT-SIDE) ──────────────────────────
    Mirror do server schema para validação imediata no cliente.
