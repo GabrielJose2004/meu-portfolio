@@ -19,6 +19,7 @@ export function MatrixBackground() {
     const CHAR_WIDTH = 20
     const CHAR_HEIGHT = 20
     const COLUMNS = Math.floor(canvas.width / (CHAR_WIDTH * 3)) // Reduz densidade: menos colunas
+    const COLUMN_SPACING = canvas.width / COLUMNS // Espaçamento real para cobrir toda a tela
     const OPACITY = 0.3 // Debug: aumentado para visibilidade
     const SPEED = 0.5 // Velocidade lenta
 
@@ -43,7 +44,7 @@ export function MatrixBackground() {
         // Apenas alguns caracteres (densidade baixa)
         if (Math.random() > 0.98) {
           const char = chars[Math.floor(Math.random() * chars.length)]
-          ctx.fillText(char, i * CHAR_WIDTH + CHAR_WIDTH / 2, drops[i] * CHAR_HEIGHT)
+          ctx.fillText(char, i * COLUMN_SPACING + COLUMN_SPACING / 2, drops[i] * CHAR_HEIGHT)
 
           // Resetar quando chegar embaixo ou aleatoriamente
           if (drops[i] * CHAR_HEIGHT > canvas.height || Math.random() > 0.95) {
