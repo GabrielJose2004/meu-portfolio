@@ -4,7 +4,7 @@ import { useState, type CSSProperties } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { submitContact } from '@/app/actions/contact'
+import { sendEmail } from '@/app/actions/sendEmail'
 import type { ContactFormInput } from '@/app/actions/contact'
 
 /* ── Schema de validação (CLIENT-SIDE) ──────────────────────────
@@ -150,7 +150,7 @@ export function ContactSection() {
     setSubmitStatus({ type: 'loading' })
 
     try {
-      const response = await submitContact(data)
+      const response = await sendEmail(data)
 
       if (response.success) {
         setSubmitStatus({
