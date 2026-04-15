@@ -18,7 +18,7 @@ export function MatrixBackground() {
 
     const CHAR_WIDTH = 20
     const CHAR_HEIGHT = 20
-    const COLUMNS = Math.floor(canvas.width / (CHAR_WIDTH * 3)) // Reduz densidade: menos colunas
+    const COLUMNS = Math.floor(canvas.width / CHAR_WIDTH) // Aumenta densidade: volta ao máximo
     const COLUMN_SPACING = canvas.width / COLUMNS // Espaçamento real para cobrir toda a tela
     const OPACITY = 0.3 // Debug: aumentado para visibilidade
     const SPEED = 0.5 // Velocidade lenta
@@ -30,8 +30,8 @@ export function MatrixBackground() {
     const chars = '01 .• ▪ ○ ◊'.split('')
 
     const draw = () => {
-      // Fade out suave: limpa rastros MAS permite partículas descerem
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      // Fade out muito lento: cria cauda longa antes de desaparecer
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Cor signal (#00ff87) com opacidade debug
