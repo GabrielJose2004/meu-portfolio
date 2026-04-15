@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
+import { MatrixBackground } from '@/components/ui/MatrixBackground'
 import './globals.css'
 
 /* ── Fontes ────────────────────────────────────────────────────────
@@ -46,6 +47,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-void text-snow font-sans antialiased min-h-screen">
+        <MatrixBackground />
         {children}
       </body>
     </html>
