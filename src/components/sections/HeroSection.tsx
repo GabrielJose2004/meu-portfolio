@@ -13,7 +13,7 @@ function stagger(index: number): CSSProperties {
 }
 
 /** Classes base para todo elemento que entra com fade-up */
-const FI = '' as const
+const FI = 'will-animate animate-fade-up' as const
 
 /* ── Componente ────────────────────────────────────────────────── */
 export function HeroSection() {

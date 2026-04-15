@@ -9,6 +9,37 @@
   --color-silver: #a1a1a1;
   --color-snow: #ededed;
   --color-signal: #00ff87;
+
+  /* Animações */
+  --animate-cursor-blink: blink 1.1s step-end infinite;
+  --animate-fade-up: fadeUp 0.55s ease-out forwards;
+
+  /* Breakpoints */
+  --breakpoint-xs: 360px;
+  --breakpoint-2k: 2560px;
+
+  /* Fontes */
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   KEYFRAMES — Animações globais
+   ───────────────────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────

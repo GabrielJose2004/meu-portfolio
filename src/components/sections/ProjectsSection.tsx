@@ -11,7 +11,7 @@ function stagger(index: number): CSSProperties {
   return { animationDelay: `${index * STAGGER_STEP_MS}ms` }
 }
 
-const FI = '' as const
+const FI = 'will-animate animate-fade-up' as const
 
 /* ── Data: Projetos ────────────────────────────────────────────── */
 interface Project {

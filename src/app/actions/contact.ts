@@ -65,14 +65,15 @@ export async function submitContact(
 
   try {
     // TODO: Implementar envio de email (SendGrid, Resend, etc.)
-    // Por enquanto, simular sucesso com log
-    console.log("📧 Contact form submission:", { name, email, subject });
+    // Por enquanto, simular sucesso
+    // TODO: Integrar com Sentry/Datadog para observabilidade de submissões
 
     return {
       success: true,
       message: "Mensagem enviada com sucesso! Responderei em até 24h.",
     };
   } catch (error) {
+    // TODO: Integrar com Sentry/Datadog
     console.error("Error submitting contact:", error);
     return {
       success: false,
