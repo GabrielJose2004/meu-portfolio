@@ -19,7 +19,7 @@ export function MatrixBackground() {
     const CHAR_WIDTH = 20
     const CHAR_HEIGHT = 20
     const COLUMNS = Math.floor(canvas.width / CHAR_WIDTH)
-    const OPACITY = 0.08 // Extremamente sutil
+    const OPACITY = 0.3 // Debug: aumentado para visibilidade
     const SPEED = 0.5 // Velocidade lenta
 
     // Array de colunas com posição Y
@@ -72,7 +72,7 @@ export function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-[-1] pointer-events-none"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
       aria-hidden="true"
     />
   )

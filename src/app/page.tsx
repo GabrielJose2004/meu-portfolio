@@ -10,7 +10,7 @@ import { ContactSection } from '@/components/sections/ContactSection'
  */
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative z-10">
       <HeroSection />
       <ProjectsSection />
       <AboutSection />
