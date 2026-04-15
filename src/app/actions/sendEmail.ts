@@ -96,10 +96,12 @@ export async function sendEmail(data: unknown): Promise<SendEmailResponse> {
 </html>
     `;
 
-    // Enviar email via Resend
+    // Enviar email via Resend (free tier)
+    // Usar onboarding@resend.dev como remetente (domínio verificado no free tier)
+    // replyTo permite que Gabriel responda diretamente ao visitante
     const response = await resend.emails.send({
-      from: "contato@gjs.dev",
-      to: RECIPIENT_EMAIL,
+      from: "onboarding@resend.dev",
+      to: [RECIPIENT_EMAIL],
       replyTo: email,
       subject: `[GJS.DEV] ${subject}`,
       html: emailHtml,
