@@ -4,8 +4,8 @@ import { useState, type CSSProperties } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { submitContact } from '@/app/actions/contact'
-import type { ContactFormInput } from '@/app/actions/contact'
+import { sendEmail } from '@/app/actions/sendEmail'
+import type { ContactFormInput } from '@/lib/validations/contact'
 
 /* ── Schema de validação (CLIENT-SIDE) ──────────────────────────
    Mirror do server schema para validação imediata no cliente.
@@ -57,7 +57,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'LinkedIn',
     icon: 'in',
-    href: 'https://linkedin.com/in/gabriel-jose-de-souza',
+    href: 'https://www.linkedin.com/in/gjds/',
     label: 'Conectar no LinkedIn',
   },
   {
@@ -69,7 +69,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'WhatsApp',
     icon: 'wa',
-    href: 'https://wa.me/5511999999999',
+    href: 'https://api.whatsapp.com/send?phone=5511932476976&text=Ol%C3%A1%20Gabriel%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20interesse%20no%20seu%20trabalho.%20Quando%20voc%C3%AA%20pode%20conversar%3F',
     label: 'Enviar mensagem via WhatsApp',
   },
 ]
@@ -150,7 +150,7 @@ export function ContactSection() {
     setSubmitStatus({ type: 'loading' })
 
     try {
-      const response = await submitContact(data)
+      const response = await sendEmail(data)
 
       if (response.success) {
         setSubmitStatus({
