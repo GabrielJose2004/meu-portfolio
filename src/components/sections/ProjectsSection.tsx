@@ -29,10 +29,21 @@ const PROJECTS: Project[] = [
     id: 'music-connect',
     title: 'Music Connect',
     description:
-      'Plataforma full-stack de gerenciamento de eventos musicais. Interface moderna construída com React + Next.js, backend robusto em Java com SQL.',
-    technologies: ['Java', 'JavaScript', 'React', 'Next.js', 'SQL'],
+      'Plataforma Full Stack desenvolvida para conectar o ecossistema musical. Premiado como o melhor projeto de extensão do semestre na USCS.',
+    technologies: ['React', 'Fastify', 'Prisma', 'PostgreSQL'],
     role: 'Full-stack Developer',
     context: 'Projeto acadêmico — USCS',
+    href: 'https://github.com/Music-Connect',
+  },
+  {
+    id: 'calculadora-java',
+    title: 'Calculadora Java',
+    description:
+      'Aplicação robusta focada em lógica de programação pura e conceitos estritos de Orientação a Objetos.',
+    technologies: ['Java', 'OOP'],
+    role: 'Developer',
+    context: 'Projeto educacional',
+    href: 'https://github.com/GabrielJose2004/Calculadora--Java.git',
   },
 ]
 
@@ -76,17 +87,24 @@ export function ProjectsSection() {
       {/* ── Grid de cards ──────────────────────────────────────── */}
       <div className="grid gap-6 sm:gap-8">
         {PROJECTS.map((project, index) => (
-          <article
+          <a
             key={project.id}
-            className={`
-              group relative border border-wire rounded-sm
-              bg-surface px-6 py-7 sm:px-8 sm:py-9
-              transition-all duration-200
-              hover:border-signal hover:bg-void
-              ${FI}
-            `}
-            style={stagger(index + 2)}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
           >
+            <article
+              className={`
+                relative border border-wire rounded-sm
+                bg-surface px-6 py-7 sm:px-8 sm:py-9
+                transition-all duration-300
+                hover:border-signal hover:bg-void hover:shadow-[0_0_15px_rgba(0,255,135,0.1)]
+                cursor-pointer
+                ${FI}
+              `}
+              style={stagger(index + 2)}
+            >
             {/* ── Conteúdo do card ──────────────────────────────── */}
             <div className="flex flex-col gap-4">
               {/* Título + Contexto */}
@@ -137,7 +155,8 @@ export function ProjectsSection() {
               "
               aria-hidden="true"
             />
-          </article>
+            </article>
+          </a>
         ))}
       </div>
     </section>
