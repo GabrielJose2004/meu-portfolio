@@ -22,22 +22,9 @@ const geistMono = Geist_Mono({
 
 /* ── Metadata ──────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: {
-    default: 'Gabriel José de Souza',
-    template: '%s — Gabriel José de Souza',
-  },
+  title: 'Gabriel José | Engenharia de Software',
   description:
-    'Portfólio de Gabriel José de Souza. Estudante de ADS, Operador de Produção na Saint-Gobain. Disciplina industrial aplicada ao desenvolvimento de software.',
-  openGraph: {
-    title: 'Gabriel José de Souza',
-    description: 'Disciplina de chão de fábrica. Código de produção.',
-    type: 'website',
-    locale: 'pt_BR',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+    'Portfólio profissional. Transição da manufatura industrial para o desenvolvimento de software. Disciplina de chão de fábrica. Código de produção.',
 }
 
 export const viewport: Viewport = {
