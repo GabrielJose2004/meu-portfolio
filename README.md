@@ -2,7 +2,7 @@
 
 > **"Disciplina de chão de fábrica. Código de produção."**
 
-Este é o meu portfólio profissional. Mais do que uma vitrine de projetos, este repositório é uma demonstração de transição de carreira técnica e rigor acadêmico, refletindo a jornada de **Operador de Produção (Saint-Gobain Sekurit)** para **Desenvolvedor de Software (USCS)**.
+Este é o meu portfólio profissional. Mais do que uma vitrine de projetos, este repositório é uma demonstração de transição de carreira técnica e rigor acadêmico, refletindo a jornada de **Operador de Produção (Saint-Gobain Sekurit)** para **[Desenvolvedor de Software (USCS)](https://www.uscs.edu.br/)**.
 
 ---
 
@@ -27,7 +27,18 @@ O projeto foi construído com foco em **performance extrema, tipagem estrita e a
 
 ---
 
-## 🏗️ Projetos em Destaque
+## � Seções do Portfólio
+
+| Seção | Propósito |
+|-------|----------|
+| **Hero** | Declaração de missão e impacto visual imediato. Apresenta a transição da produção industrial para desenvolvimento de software. |
+| **Projects** | Vitrine técnica com os projetos relevantes. Destaque para Music Connect, premiado como melhor projeto de extensão. |
+| **About** | Narrativa detalhada da jornada profissional. Contexto sobre Saint-Gobain Sekurit, formação na USCS, e como o rigor industrial aplica-se ao código. |
+| **Contact** | Estação de comunicação. Formulário de contato com validação rigorosa, integração com Resend API, e links para redes sociais (LinkedIn, GitHub, WhatsApp). |
+
+---
+
+## �🏗️ Projetos em Destaque
 
 ### Music Connect (Premiado)
 Plataforma Full Stack desenvolvida para conectar o ecossistema musical. Premiado como o **melhor projeto de extensão do semestre** na USCS.
