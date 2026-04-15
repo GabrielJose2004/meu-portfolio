@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
     role: 'Full-stack Developer',
     context: 'Projeto acadêmico — USCS',
     href: 'https://github.com/Music-Connect',
-    imageUrl: undefined, // Placeholder será renderizado
+    imageUrl: "/projects/music-connect.png", // Imagem real do projeto
   },
   {
     id: 'calculadora-java',
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     role: 'Developer',
     context: 'Projeto educacional',
     href: 'https://github.com/GabrielJose2004/Calculadora--Java.git',
-    imageUrl: undefined, // Placeholder será renderizado
+    imageUrl: "/projects/calculadora.png", // Imagem real do projeto
   },
 ]
 
@@ -110,12 +110,12 @@ export function ProjectsSection() {
               style={stagger(index + 2)}
             >
               {/* ── Área de Mockup (Topo) ──────────────────────── */}
-              <div className="relative h-48 sm:h-56 bg-surface overflow-hidden border-b border-white/5">
+              <div className="relative h-48 sm:h-56 bg-black/50 overflow-hidden border-b border-white/5 p-4 sm:p-6 flex items-center justify-center">
                 {project.imageUrl ? (
                   <img
                     src={project.imageUrl}
                     alt={`Mockup de ${project.title}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-300"
                   />
                 ) : (
                   /* Placeholder industrial */
