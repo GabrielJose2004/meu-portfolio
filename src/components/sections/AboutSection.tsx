@@ -67,9 +67,9 @@ export function AboutSection() {
             <span className="text-ghost font-mono uppercase tracking-[0.1em] text-xs block mb-2">
               Antes
             </span>
-            Operador de Produção na Saint-Gobain Sekurit: manufatura de vidros de segurança automotivos. Ambiente de tolerância
-            zero a erros, onde cada desvio de processo impactava diretamente a qualidade do produto. Certificado White Belt 5S
-            — treinamento em Lean Manufacturing.
+            Operador de Produção na Saint-Gobain Sekurit, responsável pela manufatura de vidros de segurança automotivos. Um
+            ambiente de tolerância zero a erros, onde cada desvio de processo impactava a qualidade final. Certificado White
+            Belt 5S — treinamento prático em Lean Manufacturing.
           </p>
 
           {/* Divisor visual */}
@@ -80,17 +80,30 @@ export function AboutSection() {
             <span className="text-ghost font-mono uppercase tracking-[0.1em] text-xs block mb-2">
               Hoje
             </span>
-            Estudante de Análise e Desenvolvimento de Sistemas na USCS, aplicando a mesma disciplina ao desenvolvimento de
-            software. Code reviews rigorosos, arquitetura limpa, zero dívida técnica evitável. Cada mudança passa por validação:
-            Lighthouse &gt; 90, acessibilidade WCAG 2.1, TypeScript strict mode, testes.
+            Graduando em Análise e Desenvolvimento de Sistemas na USCS, aplicando a disciplina do chão de fábrica na construção
+            de software. A prova técnica dessa transição é a plataforma Music Connect, premiada como o melhor projeto de
+            extensão do semestre.
           </p>
 
-          {/* Parágrafo 3: Síntese */}
+          {/* Divisor visual */}
+          <div className="h-px bg-wire my-2" aria-hidden="true" />
+
+          {/* Parágrafo 3: Oportunidade */}
+          <p className="text-silver">
+            <span className="text-ghost font-mono uppercase tracking-[0.1em] text-xs block mb-2">
+              Realidade
+            </span>
+            Embora eu esteja em busca da minha primeira oportunidade corporativa na área, não escrevo código de rascunho. Meus
+            projetos seguem padrões reais de produção: TypeScript em strict mode, validação de ponta a ponta e arquitetura
+            limpa.
+          </p>
+
+          {/* Parágrafo 4: Síntese */}
           <p className="text-silver pt-2">
             <span className="text-signal font-mono uppercase tracking-[0.1em] text-xs block mb-2">
               Síntese
             </span>
-            Isso não é uma mudança de carreira. É engenharia com rigor industrial.
+            Isso não é apenas uma mudança de área. É engenharia com rigor industrial.
           </p>
         </div>
       </div>
