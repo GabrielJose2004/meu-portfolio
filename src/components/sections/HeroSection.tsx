@@ -154,6 +154,22 @@ export function HeroSection() {
           >
             sobre mim
           </a>
+
+          {/* CTA terciário — contato */}
+          <a
+            href="#contato"
+            className="
+              font-mono text-xs sm:text-sm text-ghost
+              underline-offset-4
+              transition-colors duration-150
+              hover:text-silver hover:underline
+              focus-visible:outline-none
+              focus-visible:ring-2 focus-visible:ring-signal
+              focus-visible:ring-offset-2 focus-visible:ring-offset-void
+            "
+          >
+            contato
+          </a>
         </nav>
       </div>
 

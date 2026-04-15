@@ -17,6 +17,7 @@ const FI = 'will-animate animate-fade-up' as const
 export function AboutSection() {
   return (
     <section
+      id="sobre"
       aria-label="Sobre mim"
       className={`
         relative flex flex-col gap-12

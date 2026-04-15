@@ -178,6 +178,7 @@ export function ContactSection() {
 
   return (
     <section
+      id="contato"
       aria-label="Entre em contato"
       className={`
         relative flex flex-col gap-12

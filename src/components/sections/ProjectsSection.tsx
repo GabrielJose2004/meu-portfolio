@@ -40,6 +40,7 @@ const PROJECTS: Project[] = [
 export function ProjectsSection() {
   return (
     <section
+      id="projetos"
       aria-label="Projetos"
       className={`
         relative flex flex-col gap-12

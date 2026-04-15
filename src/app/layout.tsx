@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${geistMono.variable}`}
+      className={`scroll-smooth ${inter.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-void text-snow font-sans antialiased min-h-screen">
