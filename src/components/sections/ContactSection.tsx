@@ -57,7 +57,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'LinkedIn',
     icon: 'in',
-    href: 'https://linkedin.com/in/gabriel-jose-de-souza',
+    href: 'https://www.linkedin.com/in/gjds/',
     label: 'Conectar no LinkedIn',
   },
   {
@@ -69,7 +69,7 @@ const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'WhatsApp',
     icon: 'wa',
-    href: 'https://wa.me/5511999999999',
+    href: 'https://api.whatsapp.com/send?phone=5511932476976&text=Ol%C3%A1%20Gabriel%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20interesse%20no%20seu%20trabalho.%20Quando%20voc%C3%AA%20pode%20conversar%3F',
     label: 'Enviar mensagem via WhatsApp',
   },
 ]
