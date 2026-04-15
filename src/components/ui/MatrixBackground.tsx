@@ -29,8 +29,8 @@ export function MatrixBackground() {
     const chars = '01 .• ▪ ○ ◊'.split('')
 
     const draw = () => {
-      // Fade out forte: pinta com opacidade maior para limpar rastros
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+      // Fade out suave: limpa rastros MAS permite partículas descerem
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Cor signal (#00ff87) com opacidade debug
