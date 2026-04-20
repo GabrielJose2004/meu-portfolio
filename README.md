@@ -1,5 +1,11 @@
 # 🛠️ GJS.DEV | Engenharia de Software com Rigor Industrial
 
+<p align="center">
+  <a href="https://meu-portfolio-1gks.vercel.app/">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-00FF00?style=for-the-badge&logo=vercel&logoColor=black" alt="Live Demo">
+  </a>
+</p>
+
 > **"Disciplina de chão de fábrica. Código de produção."**
 
 Este é o meu portfólio profissional. Mais do que uma vitrine de projetos, este repositório é uma demonstração de transição de carreira técnica e rigor acadêmico, refletindo a jornada de **Operador de Produção (Saint-Gobain Sekurit)** para **[Desenvolvedor de Software (USCS)](https://www.uscs.edu.br/)**.
