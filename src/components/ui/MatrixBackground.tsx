@@ -6,69 +6,53 @@ export function MatrixBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    handleResize();
 
-    // Configurar canvas
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-
-    const CHAR_WIDTH = 20
-    const CHAR_HEIGHT = 20
-    const COLUMNS = Math.floor(canvas.width / CHAR_WIDTH) // Aumenta densidade: volta ao máximo
-    const COLUMN_SPACING = canvas.width / COLUMNS // Espaçamento real para cobrir toda a tela
-    const OPACITY = 0.3 // Debug: aumentado para visibilidade
-    const SPEED = 0.5 // Velocidade lenta
-
-    // Array de colunas com posição Y
-    const drops: number[] = Array(COLUMNS).fill(0)
-
-    // Caracteres minimalistas (predominantemente símbolos, poucos dígitos)
-    const chars = '01 .• ▪ ○ ◊'.split('')
+    const columns = Math.floor(canvas.width / 20);
+    const drops: number[] = new Array(columns).fill(1);
 
     const draw = () => {
-      // Fade out muito lento: cria cauda longa antes de desaparecer
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 255, 0, 0.3)';
+      ctx.font = '15px monospace';
 
-      // Cor signal (#00ff87) com opacidade debug
-      ctx.fillStyle = 'rgba(0, 255, 135, ' + OPACITY + ')'
-      ctx.font = '12px "Geist Mono", monospace'
-      ctx.textAlign = 'center'
-
-      // Desenhar caracteres
-      for (let i = 0; i < COLUMNS; i++) {
-        // Apenas alguns caracteres (densidade baixa)
-        if (Math.random() > 0.98) {
-          const char = chars[Math.floor(Math.random() * chars.length)]
-          ctx.fillText(char, i * COLUMN_SPACING + COLUMN_SPACING / 2, drops[i] * CHAR_HEIGHT)
-
-          // Resetar quando chegar embaixo ou aleatoriamente
-          if (drops[i] * CHAR_HEIGHT > canvas.height || Math.random() > 0.95) {
-            drops[i] = 0
-          } else {
-            drops[i] += SPEED
-          }
+      for (let i = 0; i < drops.length; i++) {
+        const text = String.fromCharCode(Math.random() * 128);
+        ctx.fillText(text, i * 20, drops[i] * 20);
+        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
         }
+        drops[i]++;
       }
+    };
 
-      requestAnimationFrame(draw)
-    }
+    let animId: number;
 
-    draw()
+      const loop = () => {
+      draw();
+      setTimeout(() => {
+        animId = requestAnimationFrame(loop);
+      }, 60);
+    };
 
-    // Handle resize
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
+    animId = requestAnimationFrame(loop);
+    window.addEventListener('resize', handleResize);
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <canvas

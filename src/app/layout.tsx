@@ -22,17 +22,17 @@ const geistMono = Geist_Mono({
 })
 
 /* ── Metadata ──────────────────────────────────────────────────── */
-export const metadata: Metadata = {
-  title: 'Gabriel José | Engenharia de Software',
-  description:
-    'Portfólio profissional. Transição da manufatura industrial para o desenvolvimento de software. Disciplina de chão de fábrica. Código de produção.',
-}
+  export const metadata: Metadata = {
+    title: 'Gabriel José | Engenharia de Software',
+    description:
+      'Portfólio profissional. Transição da manufatura industrial para o desenvolvimento de software. Disciplina de chão de fábrica. Código de produção.',
+  }
 
-export const viewport: Viewport = {
-  themeColor: '#000000',
-  width: 'device-width',
-  initialScale: 1,
-}
+  export const viewport: Viewport = {
+    themeColor: '#000000',
+    width: 'device-width',
+    initialScale: 1,
+  }
 
 /* ── Layout Raiz ───────────────────────────────────────────────── */
 export default function RootLayout({

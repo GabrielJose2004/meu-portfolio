@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, type CSSProperties } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, type UseFormRegister } from 'react-hook-form'
+import type { ContactFormInput } from '@/lib/validations/contact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { sendEmail } from '@/app/actions/sendEmail'
@@ -81,7 +82,7 @@ interface InputFieldProps {
   type?: string
   error?: string
   multiline?: boolean
-  register: any
+  register: UseFormRegister<ContactFormInput>
   className?: string
 }
 
