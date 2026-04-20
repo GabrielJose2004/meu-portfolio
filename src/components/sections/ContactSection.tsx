@@ -6,7 +6,6 @@ import type { ContactFormInput } from '@/lib/validations/contact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { sendEmail } from '@/app/actions/sendEmail'
-import type { ContactFormInput } from '@/lib/validations/contact'
 
 /* ── Schema de validação (CLIENT-SIDE) ──────────────────────────
    Mirror do server schema para validação imediata no cliente.
@@ -51,7 +50,7 @@ interface SocialLink {
   name: string
   icon: string
   href: string
-  label: string
+  label: string 
 }
 
 const SOCIAL_LINKS: SocialLink[] = [
@@ -78,7 +77,7 @@ const SOCIAL_LINKS: SocialLink[] = [
 /* ── Componente Input ──────────────────────────────────────────── */
 interface InputFieldProps {
   label: string
-  id: string
+  id: keyof ContactFormInput
   type?: string
   error?: string
   multiline?: boolean
