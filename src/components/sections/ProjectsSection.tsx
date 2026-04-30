@@ -27,6 +27,17 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    id: 'viva-livre',
+    title: 'VivaLivre',
+    description:
+      'Plataforma mobile de saúde e acessibilidade que usa geolocalização para conectar usuários a banheiros acessíveis. Arquitetura full-stack com migração de BaaS para backend customizado em Go, sistema de autenticação JWT e consultas geoespaciais com PostGIS.',
+    technologies: ['Flutter', 'Dart', 'Go (Golang)', 'PostgreSQL', 'PostGIS', 'JWT'],
+    role: 'Full-stack Developer',
+    context: 'Projeto Pessoal',
+    href: 'https://github.com/VivaLivre',
+    imageUrl: "/projects/VivaLivre.jpeg",
+  },
+  {
     id: 'music-connect',
     title: 'Music Connect',
     description:
